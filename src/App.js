@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Recipe from './components/Recipe'
+
+var recipes = [{
+    title: "Apple Pie",
+    url: "https://i.ytimg.com/vi/RoHWiA6pogg/maxresdefault.jpg"
+  },{
+    title: "Ramen",
+    url: "https://www.theflavorbender.com/wp-content/uploads/2019/01/Easy-Chicken-Ramen-Featured-500x375.jpg"
+  },{
+    title: "Tacos", url: "https://www.thewholesomedish.com/wp-content/uploads/2019/06/The-Best-Classic-Tacos-550.jpg"
+  }]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display:"flex"}}>
+      {
+        recipes.map(recipe =>
+          <Recipe title={recipe.title} url={recipe.url}/>
+        )
+      }
     </div>
   );
 }

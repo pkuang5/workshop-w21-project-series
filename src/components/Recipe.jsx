@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
+import '../styles/recipe.css'
 
 function Recipe(props) {
 
     const [rating, setRating] = useState(0)
 
     return(
-        <div style={{width: "20rem", borderRadius: "0.375rem", backgroundColor: "rgba(252, 211, 36)"}}>
-            <img style={{width: "100%"}} src={props.url}></img>
-            <p style={{textAlign: "center"}}>{`Name:${props.title}`}</p>
-            <p style={{textAlign: "center"}}>{`Rating:${rating}`}</p>
+        <div className="recipe">
+            <img src={props.url}></img>
+            <p className="title">{props.title}</p>
+            <p>{`rating: ${rating}`}</p>
             <button onClick={() => setRating(rating + 1)}>Increment Rating</button>
         </div>
     )

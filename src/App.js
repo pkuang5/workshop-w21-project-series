@@ -8,13 +8,17 @@ import Logout from './components/Logout';
 function App() {
   return (
     <div className="App">
-      <Login />
-      <Logout />
+
+      
       {
         recipes.map(recipe =>
           <Recipe title={recipe.title} url={recipe.url}/>
         )
       }
+      <div style={{}}>
+        <Login />
+        <Logout />
+      </div>
     </div>
   );
 }

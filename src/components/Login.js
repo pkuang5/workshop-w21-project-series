@@ -24,6 +24,7 @@ function Login() {
     );
   };
 
+  
   return (
     <div>
       <GoogleLogin
@@ -35,6 +36,7 @@ function Login() {
         style={{ marginTop: '50px' }}
         isSignedIn={true}
       />
+
     </div>
   );
 }

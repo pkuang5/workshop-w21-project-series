@@ -5,8 +5,7 @@ import { GoogleLogin } from 'react-google-login';
 // refresh token
 import { refreshTokenSetup } from '../utils/refreshToken';
 
-const clientId =
-  '528798288833-6jp9ee02c0otfb0hl3atolk4eff6pibq.apps.googleusercontent.com';
+const clientId = ; //insert client id
 
 function Login() {
 
@@ -40,7 +39,6 @@ function Login() {
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={'single_host_origin'}
-        style={{ marginTop: '50px' }}
         isSignedIn={true}
       />
     {isLoggedIn ? <p>Hello {name}</p>: <p></p> }

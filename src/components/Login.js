@@ -5,11 +5,12 @@ import { GoogleLogin } from 'react-google-login';
 // refresh token
 import { refreshTokenSetup } from '../utils/refreshToken';
 
-const clientId = ; //insert client id
+const clientId =
+  ;//insert client id here
 
 function Login() {
 
-  const [isLoggedIn, setLoggedIn] = useState(false)
+  const [clickedLoginButton, setClickedLoginButton] = useState(false)
   const [name, setName] = useState()
 
   const onSuccess = (res) => {
@@ -18,7 +19,7 @@ function Login() {
       `Logged in successfully! Welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
     );
     refreshTokenSetup(res);
-    setLoggedIn(true);
+    setClickedLoginButton(true);
     setName(res.profileObj.name)
   };
 
@@ -41,7 +42,7 @@ function Login() {
         cookiePolicy={'single_host_origin'}
         isSignedIn={true}
       />
-    {isLoggedIn ? <p>Hello {name}</p>: <p></p> }
+    {clickedLoginButton ? <p>Hello {name}</p>: <p></p> }
     </div>
   );
 }

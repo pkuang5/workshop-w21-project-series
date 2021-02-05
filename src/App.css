@@ -1,7 +1,32 @@
 .App {
+  background-color: antiquewhite;
+}  
+
+.App > p {
+  text-align: center;
+  font-size: 1.5rem;
+line-height: 2rem;
+}
+
+.recipes {
   padding: 4rem;
   display: grid;
   grid-gap: 50px 100px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  background-color: antiquewhite;
-}   
+}
+
+.navbar {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  background-color: rgb(146, 69, 69);
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > p {
+  color: white;
+  font-weight: 600;
+}

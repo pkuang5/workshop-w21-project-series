@@ -13,15 +13,20 @@ function App() {
 
   return (
     <div className="App">      
+      <div className="navbar">
+        <p>Recipe App</p>
+        {loggedIn ? 
+        <Logout loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setName={(name) => setName(name)}/>
+        :
+        <Login loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setName={(name) => setName(name)}/>}
+      </div>
+      {name ? <p>{`Welcome ${name}!`}</p>:null}
+      <div className="recipes">
       {
         recipes.map(recipe =>
           <Recipe title={recipe.title} url={recipe.url}/>
         )
       }
-      <div style={{}}>
-        <Login loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setName={(name) => setName(name)}/>
-        {loggedIn ? <p>Hello {name}</p>: <p>Not logged in</p> }
-        <Logout loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)}/>
       </div>
     </div>
   );

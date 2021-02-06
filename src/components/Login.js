@@ -13,7 +13,7 @@ function Login(props) {
     console.log('Login Success: currentUser:', res.profileObj);
     refreshTokenSetup(res);
     props.setLoggedIn(true);
-    props.setName(res.profileObj.name)
+    props.setGoogleObj(res.profileObj)
   };
 
   const onFailure = (res) => {

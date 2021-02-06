@@ -8,7 +8,7 @@ function Logout(props) {
   const onSuccess = () => {
     console.log('Logout made successfully');
     props.setLoggedIn(false);
-    props.setName();
+    props.setGoogleObj();
   };
 
   return (

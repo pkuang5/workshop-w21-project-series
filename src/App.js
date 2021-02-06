@@ -24,7 +24,7 @@ function App() {
       <div className="recipes">
       {
         recipes.map(recipe =>
-          <Recipe title={recipe.title} url={recipe.url}/>
+          <Recipe googleObj={googleObj} title={recipe.title} url={recipe.url}/>
         )
       }
       </div>

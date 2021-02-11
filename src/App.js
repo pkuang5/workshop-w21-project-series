@@ -4,6 +4,7 @@ import './App.css'
 import recipes from './utils/recipes'
 import Login from './components/Login';
 import Logout from './components/Logout';
+import MyRecipes from './components/MyRecipes'
 
 
 function App() {
@@ -20,7 +21,16 @@ function App() {
         :
         <Login loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)}/>}
       </div>
-      {googleObj ? <p>{`Welcome ${googleObj.name}!`}</p>:null}
+      {googleObj ? 
+      <div>
+        <p>{`Welcome ${googleObj.name}!`}</p>
+        <p>My Recipes</p>
+        <div className="recipes">
+          <MyRecipes googleObj={googleObj} />
+        </div>
+        <p>End of My Recipes</p>
+      </div>
+      :null}
       <div className="recipes">
       {
         recipes.map(recipe =>

@@ -16,13 +16,22 @@ function Recipe(props) {
         )
     }
 
+    const deleteFromDb = () => {
+        database.ref(`/users/${props.googleObj.googleId}/recipes/${props.id}`).remove()
+    }
+
     return(
         <div className="recipe">
             <img src={props.url}></img>
             <p className="title">{props.title}</p>
             <p>{`rating: ${rating}`}</p>
             <button onClick={() => setRating(rating + 1)}>Increment Rating</button>
-            <button onClick={() => saveToDb()}>Save</button>
+            {
+            props.id ?
+                <button onClick={() => deleteFromDb()}>Delete</button>
+                :
+                <button onClick={() => saveToDb()}>Save</button>
+            }
         </div>
     )
 }

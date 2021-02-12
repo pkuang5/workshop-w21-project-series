@@ -2,7 +2,7 @@
   background-color: antiquewhite;
 }  
 
-.App > p {
+.App > div > p {
   text-align: center;
   font-size: 1.5rem;
 line-height: 2rem;

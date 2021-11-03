@@ -10,31 +10,44 @@ import MyRecipes from './components/MyRecipes'
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
+  const [buttontext, setButtonText] = useState("Login")
   const [googleObj, setGoogleObj] = useState()
+
+  const afterLogIn = (isLoggedIn) =>{
+    if(isLoggedIn){
+      setLoggedIn(false)
+      setButtonText("Login")
+    }
+    else{
+      setLoggedIn(true)
+      setButtonText("Logout")
+    }
+  }
 
   return (
     <div className="App">      
       <div className="navbar">
         <p>Recipe App</p>
-        {loggedIn ? 
-        <Logout loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)}/>
-        :
-        <Login loggedIn={loggedIn} setLoggedIn = {(bool) => setLoggedIn(bool)} setGoogleObj={(obj) => setGoogleObj(obj)}/>}
+        {loggedIn ?
+          <button onClick={() => afterLogIn(loggedIn)}>{buttontext}</button>
+          :
+          <button onClick={() => afterLogIn(loggedIn)}>{buttontext}</button>}
       </div>
-      {googleObj ? 
+
+      {loggedIn ? 
       <div>
-        <p>{`Welcome ${googleObj.name}!`}</p>
         <p>My Recipes</p>
         <div className="recipes">
-          <MyRecipes googleObj={googleObj} />
+          <MyRecipes/>
         </div>
         <p>End of My Recipes</p>
       </div>
       :null}
+
       <div className="recipes">
       {
         recipes.map(recipe =>
-          <Recipe googleObj={googleObj} title={recipe.title} url={recipe.url}/>
+          <Recipe googleObj={googleObj} title={recipe.title} url={recipe.url} rating = {0}/>
         )
       }
       </div>

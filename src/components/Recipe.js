@@ -4,20 +4,20 @@ import '../styles/recipe.css'
 import database from '../firebase'
 
 function Recipe(props) {
-
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState(props.rating)
 
     const saveToDb = () => {
-        database.ref(`/users/${props.googleObj.googleId}/recipes`).push(
+        database.ref(`/users/recipes`).push(
             {
                 title: props.title,
-                url: props.url
+                url: props.url,
+                db_rating: rating
             }
         )
     }
 
     const deleteFromDb = () => {
-        database.ref(`/users/${props.googleObj.googleId}/recipes/${props.id}`).remove()
+        database.ref(`/users/recipes/${props.id}`).remove()
     }
 
     return(

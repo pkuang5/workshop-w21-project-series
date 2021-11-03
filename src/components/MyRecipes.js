@@ -3,12 +3,12 @@ import Recipe from './Recipe'
 
 import database from '../firebase'
 
-function MyRecipes(props) {
+function MyRecipes() {
 
     const [recipes, setRecipes] = useState([])
     
     useEffect(() =>
-    database.ref(`/users/${props.googleObj.googleId}/recipes`).on("value", (snapshot) => {
+    database.ref(`/users/recipes`).on("value", (snapshot) => {
             if (snapshot) {
                 console.log(snapshot.val())
                 let myRecipes = []
@@ -16,7 +16,8 @@ function MyRecipes(props) {
                     let recipe = {
                         id: data.key,
                         title: data.val().title,
-                        url: data.val().url
+                        url: data.val().url,
+                        db_rating: data.val().db_rating
                     }
                     myRecipes.push(recipe) 
                 }) 
@@ -27,7 +28,7 @@ function MyRecipes(props) {
 
     return(
         recipes.map(recipe =>
-            <Recipe id={recipe.id} googleObj={props.googleObj} title={recipe.title} url={recipe.url}/>
+            <Recipe id={recipe.id} title={recipe.title} url={recipe.url} rating = {recipe.db_rating}/>
         )
     )
 }
